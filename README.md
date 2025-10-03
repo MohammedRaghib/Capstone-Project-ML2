@@ -87,8 +87,8 @@ This project builds a **machine learning model that classifies news statements i
 1. **Clone repo & install dependencies**
 
    ```bash
-   git clone https://github.com/yourusername/fake-news-detection.git
-   cd fake-news-detection
+   git clone https://github.com/MohammedRaghib/Capstone-Project-ML2.git
+   cd Capstone-Project-ML2
    pip install -r requirements.txt
    ```
 
