@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statement Labeler</title>
+    <!-- Load Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-xl bg-white shadow-2xl rounded-2xl p-6 md:p-8 border border-indigo-200">
+
+        <!-- Header -->
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-2">
+                Gradient Boosting Labeler
+            </h1>
+            <p class="text-gray-500">
+                Paste your statement and get the predicted category.
+            </p>
+        </header>
+
+        <!-- Prediction Form -->
+        <form method="POST" action="/" class="space-y-6">
+            <div>
+                <label for="statement" class="block text-sm font-semibold text-gray-700 mb-2">Statement to Classify</label>
+                <textarea
+                    id="statement"
+                    name="statement"
+                    rows="6"
+                    required
+                    class="w-full border-2 border-gray-300 rounded-xl p-4 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out resize-none shadow-sm placeholder-gray-400"
+                    placeholder="Enter the text statement here..."
+                >{{ statement if statement }}</textarea>
+            </div>
+
+            <button
+                type="submit"
+                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 transform hover:scale-[1.01] active:scale-[0.99]"
+            >
+                Get Label
+            </button>
+        </form>
+
+        <!-- Prediction Result -->
+        {% if prediction %}
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                    Prediction Result
+                </h2>
+
+                <div class="p-5 bg-indigo-50 border border-indigo-300 rounded-xl shadow-md">
+                    <p class="text-sm font-semibold text-indigo-700 mb-2">Predicted Category:</p>
+                    <p class="text-2xl font-extrabold text-indigo-800 break-words">
+                        {{ prediction }}
+                    </p>
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
