@@ -7,6 +7,10 @@ MODEL_FILENAME = 'gradient_boosting_model.joblib'
 MODEL_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILENAME)
 
+print("🔍 Current working directory:", os.getcwd(), flush=True)
+print("📄 Model path expected:", MODEL_PATH, flush=True)
+print("📦 Model file exists?", os.path.exists(MODEL_PATH), flush=True)
+
 app = Flask(__name__, template_folder="templates")
 model = None
 
