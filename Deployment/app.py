@@ -83,6 +83,7 @@ def predict():
 
 @app.errorhandler(500)
 def internal_error(error):
+    print(error)
     return render_template('error.html', title="Server Error", message="An unexpected server error occurred."), 500
 
 if __name__ == '__main__':
